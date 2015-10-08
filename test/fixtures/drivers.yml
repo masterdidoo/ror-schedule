@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Driver 1
+  schedule: 2000-01-01
+  truck: one
+
+two:
+  name: Driver 2
+  schedule: 2000-01-02
+  truck: two

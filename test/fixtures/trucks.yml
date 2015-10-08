@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: Truck1
+  volume: 1600.5
+  start_address: one
+
+two:
+  number: Truck2
+  volume: 1500
+  start_address: one
