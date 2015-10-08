@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007185411) do
+ActiveRecord::Schema.define(version: 20151008165658) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string  "raw_line"
     t.integer "city_id"
+    t.string  "zip"
+    t.string  "raw_line"
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
@@ -38,6 +39,24 @@ ActiveRecord::Schema.define(version: 20151007185411) do
   end
 
   add_index "drivers", ["truck_id"], name: "index_drivers_on_truck_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "number"
+    t.date     "delivery_date"
+    t.integer  "delivery_shift"
+    t.float    "volume"
+    t.integer  "handling_unit_quantity"
+    t.string   "origin_name"
+    t.integer  "origin_address_id"
+    t.string   "destination_name"
+    t.integer  "destination_address_id"
+    t.string   "phone_number"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "orders", ["destination_address_id"], name: "index_orders_on_destination_address_id"
+  add_index "orders", ["origin_address_id"], name: "index_orders_on_origin_address_id"
 
   create_table "states", force: :cascade do |t|
     t.string  "name"

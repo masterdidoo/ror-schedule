@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  zip: 664433
   raw_line: MyString 1
   city: one 
 
 two:
+  zip: 443322
   raw_line: MyString 2
   city: two
