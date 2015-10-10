@@ -7,13 +7,8 @@ class CreateOrders < ActiveRecord::Migration
       t.float :volume
       t.integer :handling_unit_quantity
       
-      t.string :origin_name
-      t.belongs_to :origin_address, class_name: 'Address', index: true, foreign_key: true
-
-      t.string :destination_name
-      t.belongs_to :destination_address, class_name: 'Address', index: true, foreign_key: true
-
-      t.string :phone_number
+      t.belongs_to :origin_point, class_name: 'Point', index: true, foreign_key: true
+      t.belongs_to :destination_point, class_name: 'Point', index: true, foreign_key: true
 
       t.timestamps null: false
     end

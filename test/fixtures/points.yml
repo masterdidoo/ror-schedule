@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+p1:
+  name: LTD Name
+  phone: 443-2233213
+  address: one
+
+p2:
+  name: Client Name 1
+  phone: 442-0022225
+  address: two

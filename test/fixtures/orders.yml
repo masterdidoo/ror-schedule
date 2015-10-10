@@ -6,11 +6,8 @@ ord1:
   delivery_shift: 1
   volume: 5.5
   handling_unit_quantity: 1
-  origin_name: Origin Name 1
-  origin_address: one
-  destination_name: Destination Name 1
-  destination_address: two
-  phone_number: 680-182-5990
+  origin_point: p1
+  destination_point: p2
 
 ord2:
   number: 230204
@@ -18,8 +15,5 @@ ord2:
   delivery_shift: 2
   volume: 4.5
   handling_unit_quantity: 5
-  origin_name: Origin Name 2
-  origin_address: two
-  destination_name: Destination Name 2
-  destination_address: one
-  phone_number: 680-182-5990
+  origin_point: p2
+  destination_point: p1

@@ -10,11 +10,14 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 'afternoon', order.delivery_shift
     assert_equal 5.5, order.volume
     assert_equal 1, order.handling_unit_quantity
-    assert_equal 'Origin Name 1', order.origin_name
-    assert_equal 'MyString 1', order.origin_address.raw_line
-    assert_equal 'Destination Name 1', order.destination_name
-    assert_equal 'MyString 2', order.destination_address.raw_line
-    assert_equal '680-182-5990', order.phone_number
+
+    assert_equal 'LTD Name', order.origin_point.name
+    assert_equal 'MyString 1', order.origin_point.address.raw_line
+    assert_equal '443-2233213', order.origin_point.phone
+
+    assert_equal 'Client Name 1', order.destination_point.name
+    assert_equal 'MyString 2', order.destination_point.address.raw_line
+    assert_equal '442-0022225', order.destination_point.phone
 
     order = Order.find orders(:ord2).id
     assert_equal '230204', order.number
@@ -22,10 +25,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 'evening', order.delivery_shift
     assert_equal 4.5, order.volume
     assert_equal 5, order.handling_unit_quantity
-    assert_equal 'Origin Name 2', order.origin_name
-    assert_equal 'MyString 2', order.origin_address.raw_line
-    assert_equal 'Destination Name 2', order.destination_name
-    assert_equal 'MyString 1', order.destination_address.raw_line
-    assert_equal '680-182-5990', order.phone_number
+
+    assert_equal 'Client Name 1', order.origin_point.name
+    assert_equal 'MyString 2', order.origin_point.address.raw_line
+    assert_equal '442-0022225', order.origin_point.phone
+
+    assert_equal 'LTD Name', order.destination_point.name
+    assert_equal 'MyString 1', order.destination_point.address.raw_line
+    assert_equal '443-2233213', order.destination_point.phone
   end
 end
