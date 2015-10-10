@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
-  test "two orders" do
-    assert_equal 2, Order.count
+  test "orders" do
+    assert_equal 5, Order.count
 
     order = Order.find orders(:ord1).id
     assert_equal '230203', order.number
-    assert_equal Date.new(2015,10,8), order.delivery_date
+    assert_equal Date.new(2015,10,10), order.delivery_date
     assert_equal 'afternoon', order.delivery_shift
     assert_equal 5.5, order.volume
     assert_equal 1, order.handling_unit_quantity
@@ -21,7 +21,7 @@ class OrderTest < ActiveSupport::TestCase
 
     order = Order.find orders(:ord2).id
     assert_equal '230204', order.number
-    assert_equal Date.new(2015,10,8), order.delivery_date
+    assert_equal Date.new(2015,10,10), order.delivery_date
     assert_equal 'evening', order.delivery_shift
     assert_equal 4.5, order.volume
     assert_equal 5, order.handling_unit_quantity

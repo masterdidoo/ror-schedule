@@ -3,9 +3,9 @@
 one:
   number: Truck1
   volume: 1600.5
-  start_address: one
+  start_address: a1
 
 two:
   number: Truck2
   volume: 1500
-  start_address: one
+  start_address: a1

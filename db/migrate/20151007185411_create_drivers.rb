@@ -4,6 +4,8 @@ class CreateDrivers < ActiveRecord::Migration
       t.string :name
       t.date :schedule
       t.belongs_to :truck, index: true, foreign_key: true
+
+      t.timestamps null: false
     end
   end
 end

@@ -4,6 +4,8 @@ class CreateTrucks < ActiveRecord::Migration
       t.string :number
       t.float :volume
       t.belongs_to :start_address, name: :address, index: true, foreign_key: true
+
+      t.timestamps null: false
     end
   end
 end

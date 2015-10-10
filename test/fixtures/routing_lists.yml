@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_date: 2015-10-10
+  delivery_shift: 1
+  driver_id: one
+  first_step_id:  rs1

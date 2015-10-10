@@ -2,7 +2,7 @@
 
 ord1:
   number: 230203
-  delivery_date: 2015-10-08
+  delivery_date: 2015-10-10
   delivery_shift: 1
   volume: 5.5
   handling_unit_quantity: 1
@@ -11,7 +11,34 @@ ord1:
 
 ord2:
   number: 230204
-  delivery_date: 2015-10-08
+  delivery_date: 2015-10-10
+  delivery_shift: 2
+  volume: 4.5
+  handling_unit_quantity: 5
+  origin_point: p2
+  destination_point: p1
+
+ord3:
+  number: 230209
+  delivery_date: 2015-10-10
+  delivery_shift: 2
+  volume: 4.5
+  handling_unit_quantity: 5
+  origin_point: p2
+  destination_point: p1
+
+ord4:
+  number: 230214
+  delivery_date: 2015-10-10
+  delivery_shift: 2
+  volume: 4.5
+  handling_unit_quantity: 5
+  origin_point: p2
+  destination_point: p1
+
+ord5:
+  number: 230216
+  delivery_date: 2015-10-10
   delivery_shift: 2
   volume: 4.5
   handling_unit_quantity: 5
