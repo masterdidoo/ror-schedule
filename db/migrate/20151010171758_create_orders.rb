@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string :number
       t.date :delivery_date
-      t.integer :delivery_shift
+      t.integer :delivery_shift, default: 0
       t.float :volume
       t.integer :handling_unit_quantity
       

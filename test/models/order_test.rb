@@ -34,4 +34,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 'MyString 1', order.destination_point.address.raw_line
     assert_equal '443-2233213', order.destination_point.phone
   end
+
+  test "orders list" do
+    order = Order.find orders(:ord2).id
+    ds = order.delivery_shift
+    assert_equal 'evening', ds
+
+    list = Order.where(:delivery_date => Date.new(2015,10,10), :delivery_shift => Order.delivery_shifts[ds])
+    assert_equal 4, list.count
+  end
 end

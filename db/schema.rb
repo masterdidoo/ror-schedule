@@ -51,15 +51,15 @@ ActiveRecord::Schema.define(version: 20151010171758) do
   create_table "orders", force: :cascade do |t|
     t.string   "number"
     t.date     "delivery_date"
-    t.integer  "delivery_shift"
+    t.integer  "delivery_shift",         default: 0
     t.float    "volume"
     t.integer  "handling_unit_quantity"
     t.integer  "origin_point_id"
     t.integer  "destination_point_id"
     t.integer  "load_step_id"
     t.integer  "unload_step_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "orders", ["destination_point_id"], name: "index_orders_on_destination_point_id"
