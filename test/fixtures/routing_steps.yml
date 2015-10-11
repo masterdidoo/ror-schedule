@@ -2,20 +2,20 @@
 
 rs1:
   delivery_time: 2015-10-10 16:10:51
-  next_step_id: rs2
+  next_step: rs2
 
 rs2:
   delivery_time: 2015-10-10 16:20:51
-  next_step_id: rs3
+  next_step: rs3
 
 rs3:
   delivery_time: 2015-10-10 16:30:51
-  next_step_id: rs4
+  next_step: rs4
 
 rs4:
   delivery_time: 2015-10-10 16:40:51
-  next_step_id: rs5
+  next_step: rs5
 
 rs5:
   delivery_time: 2015-10-10 16:50:51
-  next_step_id:
+  next_step:

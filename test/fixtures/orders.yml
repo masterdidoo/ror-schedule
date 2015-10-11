@@ -8,6 +8,8 @@ ord1:
   handling_unit_quantity: 1
   origin_point: p1
   destination_point: p2
+  load_step: rs1
+  unload_step: rs2
 
 ord2:
   number: 230204
@@ -17,6 +19,8 @@ ord2:
   handling_unit_quantity: 5
   origin_point: p2
   destination_point: p1
+  load_step: rs2
+  unload_step: rs5
 
 ord3:
   number: 230209
@@ -24,8 +28,10 @@ ord3:
   delivery_shift: 2
   volume: 4.5
   handling_unit_quantity: 5
-  origin_point: p2
+  origin_point: p3
   destination_point: p1
+  load_step: rs3
+  unload_step: rs5
 
 ord4:
   number: 230214
@@ -33,12 +39,25 @@ ord4:
   delivery_shift: 2
   volume: 4.5
   handling_unit_quantity: 5
-  origin_point: p2
-  destination_point: p1
+  origin_point: p3
+  destination_point: p2
+  load_step: rs3
+  unload_step: rs4
 
 ord5:
   number: 230216
   delivery_date: 2015-10-10
+  delivery_shift: 2
+  volume: 4.5
+  handling_unit_quantity: 5
+  origin_point: p2
+  destination_point: p3
+  load_step: rs2
+  unload_step: rs3
+
+ord6:
+  number: 230204
+  delivery_date: 2015-10-11
   delivery_shift: 2
   volume: 4.5
   handling_unit_quantity: 5

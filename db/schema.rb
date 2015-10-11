@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20151010171758) do
   add_index "routing_lists", ["first_step_id"], name: "index_routing_lists_on_first_step_id"
 
   create_table "routing_steps", force: :cascade do |t|
-    t.time     "delivery_time"
+    t.datetime "delivery_time"
     t.integer  "next_step_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

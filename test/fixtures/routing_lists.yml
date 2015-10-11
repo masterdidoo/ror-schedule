@@ -3,5 +3,5 @@
 one:
   delivery_date: 2015-10-10
   delivery_shift: 1
-  driver_id: one
-  first_step_id:  rs1
+  driver: one
+  first_step:  rs1

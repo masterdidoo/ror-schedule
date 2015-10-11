@@ -1,0 +1,53 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_date %><br>
+    <%= f.date_select :delivery_date %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_shift %><br>
+    <%= f.select :delivery_shift, Order.delivery_shifts.keys %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br>
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :handling_unit_quantity %><br>
+    <%= f.number_field :handling_unit_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :origin_point_id %><br>
+    <%= f.text_field :origin_point_id %>
+  </div>
+  <div class="field">
+    <%= f.label :destination_point_id %><br>
+    <%= f.text_field :destination_point_id %>
+  </div>
+  <div class="field">
+    <%= f.label :load_step_id %><br>
+    <%= f.text_field :load_step_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unload_step_id %><br>
+    <%= f.text_field :unload_step_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>

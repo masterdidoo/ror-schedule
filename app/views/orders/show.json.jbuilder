@@ -1,0 +1,1 @@
+json.extract! @order, :id, :number, :delivery_date, :delivery_shift, :volume, :handling_unit_quantity, :origin_point_id, :destination_point_id, :load_step_id, :unload_step_id, :created_at, :updated_at
