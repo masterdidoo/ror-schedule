@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to routing_lists_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_routing_list_path(@routing_list), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show routing_list</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Delivery date:</dt>
+  <dd><%= @routing_list.delivery_date %></dd>
+
+  <dt>Delivery shift:</dt>
+  <dd><%= @routing_list.delivery_shift %></dd>
+
+  <dt>Driver:</dt>
+  <dd><%= @routing_list.driver %></dd>
+
+  <dt>First step:</dt>
+  <dd><%= @routing_list.first_step %></dd>
+
+</dl>

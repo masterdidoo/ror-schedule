@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_routing_list_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Routing list
+  <% end %>
+  <h1>Listing routing_lists</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Delivery date</th>
+            <th>Delivery shift</th>
+            <th>Driver</th>
+            <th>First step</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @routing_lists) do |routing_list| %>
+            <td><%= routing_list.delivery_date %></td>
+            <td><%= routing_list.delivery_shift %></td>
+            <td><%= routing_list.driver %></td>
+            <td><%= routing_list.first_step %></td>
+            <td><%= link_to 'Show', routing_list %></td>
+        <td><%= link_to 'Edit', edit_routing_list_path(routing_list) %></td>
+        <td><%= link_to 'Destroy', routing_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
