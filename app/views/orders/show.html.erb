@@ -1,49 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to orders_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_order_path(@order), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show order</h1>
+</div>
 
-<p>
-  <strong>Number:</strong>
-  <%= @order.number %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Number:</dt>
+  <dd><%= @order.number %></dd>
 
-<p>
-  <strong>Delivery date:</strong>
-  <%= @order.delivery_date %>
-</p>
+  <dt>Delivery date:</dt>
+  <dd><%= @order.delivery_date %></dd>
 
-<p>
-  <strong>Delivery shift:</strong>
-  <%= @order.delivery_shift %>
-</p>
+  <dt>Delivery shift:</dt>
+  <dd><%= @order.delivery_shift %></dd>
 
-<p>
-  <strong>Volume:</strong>
-  <%= @order.volume %>
-</p>
+  <dt>Volume:</dt>
+  <dd><%= @order.volume %></dd>
 
-<p>
-  <strong>Handling unit quantity:</strong>
-  <%= @order.handling_unit_quantity %>
-</p>
+  <dt>Handling unit quantity:</dt>
+  <dd><%= @order.handling_unit_quantity %></dd>
 
-<p>
-  <strong>Origin point:</strong>
-  <%= @order.origin_point %>
-</p>
+  <dt>Load time:</dt>
+  <dd><%= @order.load_time %></dd>
 
-<p>
-  <strong>Destination point:</strong>
-  <%= @order.destination_point %>
-</p>
+  <dt>Unload time:</dt>
+  <dd><%= @order.unload_time %></dd>
 
-<p>
-  <strong>Loading Time:</strong>
-  <%= @order.load_time %>
-</p>
-
-<p>
-  <strong>Unloading Time:</strong>
-  <%= @order.unload_time %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+</dl>
