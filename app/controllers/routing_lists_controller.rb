@@ -26,8 +26,10 @@ class RoutingListsController < ApplicationController
   def create
     @routing_list = RoutingList.new(routing_list_params)
 
+    result = @routing_list.save
+
     respond_to do |format|
-      if @routing_list.save
+      if result
         format.html { redirect_to @routing_list, notice: 'Routing list was successfully created.' }
         format.json { render :show, status: :created, location: @routing_list }
       else

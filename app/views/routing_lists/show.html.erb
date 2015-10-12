@@ -20,7 +20,21 @@
   <dt>Driver:</dt>
   <dd><%= @routing_list.driver %></dd>
 
-  <dt>First step:</dt>
-  <dd><%= @routing_list.first_step %></dd>
-
 </dl>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Delivery time</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <%= content_tag_for(:tr, @routing_list.routing_steps) do |routing_list| %>
+        <td><%= routing_list.delivery_time %></td>
+        <td><%= routing_list.routing_address %></td>
+    <% end %>
+    </tbody>
+  </table>
+</div>

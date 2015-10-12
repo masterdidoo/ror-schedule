@@ -44,7 +44,7 @@ class OrderTest < ActiveSupport::TestCase
     ds = order.delivery_shift
     assert_equal 'evening', ds
 
-    list = Order.where(:delivery_date => Date.new(2015,10,10), :delivery_shift => Order.delivery_shifts[ds])
+    list = Order.where(:delivery_date => Date.new(2015,10,10), :delivery_shift => Order.delivery_shifts[ds.to_sym])
     assert_equal 4, list.count
   end
 end
