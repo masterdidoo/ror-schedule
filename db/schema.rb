@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151010171758) do
 
   create_table "drivers", force: :cascade do |t|
     t.string   "name"
-    t.date     "schedule"
+    t.integer  "schedule"
     t.integer  "truck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20151010171758) do
   create_table "orders", force: :cascade do |t|
     t.string   "number"
     t.date     "delivery_date"
-    t.integer  "delivery_shift",         default: 0
+    t.integer  "delivery_shift",         default: 0, null: false
     t.float    "volume"
     t.integer  "handling_unit_quantity"
     t.integer  "origin_point_id"
@@ -77,11 +77,11 @@ ActiveRecord::Schema.define(version: 20151010171758) do
 
   create_table "routing_lists", force: :cascade do |t|
     t.date     "delivery_date"
-    t.integer  "delivery_shift"
+    t.integer  "delivery_shift", default: 0, null: false
     t.integer  "driver_id"
     t.integer  "first_step_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "routing_lists", ["driver_id"], name: "index_routing_lists_on_driver_id"

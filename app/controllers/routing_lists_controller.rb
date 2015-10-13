@@ -26,7 +26,7 @@ class RoutingListsController < ApplicationController
   def create
     @routing_list = RoutingList.new(routing_list_params)
 
-    result = @routing_list.save
+    result = RoutingListsService.create(@routing_list)
 
     respond_to do |format|
       if result

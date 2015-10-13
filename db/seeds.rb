@@ -1,5 +1,6 @@
 country = Country.create(name: 'US')
 state = State.create(name: 'NC', country: country)
+raleigh = City.create(	{ name: 'RALEIGH', state: state })
 City.create([
 	{ name: 'ABERDEEN', state: state },
 	{ name: 'BROADWAY', state: state },
@@ -29,7 +30,6 @@ City.create([
 	{ name: 'PEMBROKE', state: state },
 	{ name: 'PINEHURST', state: state },
 	{ name: 'RAEFORD', state: state },
-	{ name: 'RALEIGH', state: state },
 	{ name: 'ROCKINGHAM', state: state },
 	{ name: 'ROSEBORO', state: state },
 	{ name: 'SALEMBURG', state: state },
@@ -41,3 +41,26 @@ City.create([
 	{ name: 'WHITE OAK', state: state },
 	{ name: 'WHITEVILLE', state: state }
  ])
+
+address = Address.create({city: raleigh, zip: '27603', raw_line: '1505 S BLOUNT ST'})
+
+Driver.create([
+                  {
+                      name: 'Driver 1',
+                      schedule: 0,
+                      truck: Truck.create({
+                                              start_address: address,
+                                              number: '123',
+                                              volume: 1000
+                                          })
+                  },
+                  {
+                      name: 'Driver 2',
+                      schedule: 1,
+                      truck: Truck.create({
+                                              start_address: address,
+                                              number: '321',
+                                              volume: 1000
+                                          })
+                  }
+              ])
