@@ -15,10 +15,12 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    edit
   end
 
   # GET /orders/1/edit
   def edit
+    @points = Point.all.map{|p| [p.name, p.id]}
   end
 
   # POST /orders

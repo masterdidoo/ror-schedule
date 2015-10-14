@@ -5,6 +5,14 @@ class Order < ActiveRecord::Base
   belongs_to :load_step, class_name: 'RoutingStep'
   belongs_to :unload_step, class_name: 'RoutingStep'
 
+  def origin_point_name
+    origin_point.nil? ? nil : origin_point.name
+  end
+
+  def destination_point_name
+    destination_point.nil? ? nil : destination_point.name
+  end
+
   def load_time
     load_step.nil? ? nil : load_step.delivery_time
   end
