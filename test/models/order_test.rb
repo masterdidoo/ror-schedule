@@ -9,13 +9,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 5.5, order.volume
     assert_equal 1, order.handling_unit_quantity
 
-    assert_equal 'LTD Name', order.origin_point.name
-    assert_equal 'MyString 1', order.origin_point.address.raw_line
-    assert_equal '443-2233213', order.origin_point.phone
+    assert_equal 'LTD Name', order.origin_name
+    assert_equal 'MyString 1', order.origin_address.raw_line
+    assert_equal '443-2233213', order.origin_phone
 
-    assert_equal 'Client Name 1', order.destination_point.name
-    assert_equal 'MyString 2', order.destination_point.address.raw_line
-    assert_equal '442-0022225', order.destination_point.phone
+    assert_equal 'Client Name 1', order.destination_name
+    assert_equal 'MyString 2', order.destination_address.raw_line
+    assert_equal '442-0022225', order.destination_phone
 
     assert_equal DateTime.new(2015,10,10,16,10,51), order.load_time
     assert_equal DateTime.new(2015,10,10,16,20,51), order.unload_time
@@ -27,13 +27,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 4.5, order.volume
     assert_equal 5, order.handling_unit_quantity
 
-    assert_equal 'Client Name 1', order.origin_point.name
-    assert_equal 'MyString 2', order.origin_point.address.raw_line
-    assert_equal '442-0022225', order.origin_point.phone
+    assert_equal 'Client Name 1', order.origin_name
+    assert_equal 'MyString 2', order.origin_address.raw_line
+    assert_equal '442-0022225', order.origin_phone
 
-    assert_equal 'LTD Name', order.destination_point.name
-    assert_equal 'MyString 1', order.destination_point.address.raw_line
-    assert_equal '443-2233213', order.destination_point.phone
+    assert_equal 'LTD Name', order.destination_name
+    assert_equal 'MyString 1', order.destination_address.raw_line
+    assert_equal '443-2233213', order.destination_phone
 
     assert_nil order.load_time
     assert_nil order.unload_time

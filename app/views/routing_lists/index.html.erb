@@ -23,7 +23,7 @@
       <%= content_tag_for(:tr, @routing_lists) do |routing_list| %>
             <td><%= routing_list.delivery_date %></td>
             <td><%= routing_list.delivery_shift %></td>
-            <td><%= routing_list.driver %></td>
+            <td><%= routing_list.driver_name %></td>
             <td><%= link_to 'Show', routing_list %></td>
         <td><%= link_to 'Edit', edit_routing_list_path(routing_list) %></td>
         <td><%= link_to 'Destroy', routing_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>

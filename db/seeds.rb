@@ -44,18 +44,8 @@ City.create([
 
 address = Address.create({city: raleigh, zip: '27603', raw_line: '1505 S BLOUNT ST'})
 
-Point.create({
-                 address: address,
-                 name: 'Larkin LLC',
-                 phone: ''
-             })
-
 City.all.each do |city|
-  Point.create({
-                   address: Address.create({city: city, zip: '27603', raw_line: '1505 S BLOUNT ST'}),
-                   name: 'Test Client in '+city.name,
-                   phone: ''
-               })
+  Address.create({city: city, zip: '27603', raw_line: '1505 S BLOUNT ST'})
 end
 
 Driver.create([

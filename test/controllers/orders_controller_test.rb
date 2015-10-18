@@ -20,7 +20,7 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should create order" do
     assert_difference('Order.count') do
-      post :create, order: { delivery_date: @order.delivery_date, delivery_shift: @order.delivery_shift, destination_point_id: @order.destination_point_id, handling_unit_quantity: @order.handling_unit_quantity, load_step_id: @order.load_step_id, number: @order.number, origin_point_id: @order.origin_point_id, unload_step_id: @order.unload_step_id, volume: @order.volume }
+      post :create, order: { delivery_date: @order.delivery_date, delivery_shift: @order.delivery_shift, destination_address_id: @order.destination_address_id, handling_unit_quantity: @order.handling_unit_quantity, load_step_id: @order.load_step_id, number: @order.number, origin_address_id: @order.origin_address_id, unload_step_id: @order.unload_step_id, volume: @order.volume }
     end
 
     assert_redirected_to order_path(assigns(:order))
@@ -37,7 +37,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should update order" do
-    patch :update, id: @order, order: { delivery_date: @order.delivery_date, delivery_shift: @order.delivery_shift, destination_point_id: @order.destination_point_id, handling_unit_quantity: @order.handling_unit_quantity, load_step_id: @order.load_step_id, number: @order.number, origin_point_id: @order.origin_point_id, unload_step_id: @order.unload_step_id, volume: @order.volume }
+    patch :update, id: @order, order: { delivery_date: @order.delivery_date, delivery_shift: @order.delivery_shift, destination_address_id: @order.destination_address_id, handling_unit_quantity: @order.handling_unit_quantity, load_step_id: @order.load_step_id, number: @order.number, origin_address_id: @order.origin_address_id, unload_step_id: @order.unload_step_id, volume: @order.volume }
     assert_redirected_to order_path(assigns(:order))
   end
 

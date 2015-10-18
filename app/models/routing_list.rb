@@ -13,7 +13,7 @@ class RoutingList < ActiveRecord::Base
     steps
   end
 
-  def make
-    # DriversService.get_available(delivery_date, delivery_shift)
+  def driver_name
+    driver.nil? ? nil : driver.name
   end
 end

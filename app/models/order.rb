@@ -1,16 +1,16 @@
 class Order < ActiveRecord::Base
   enum :delivery_shift => [:morning, :afternoon, :evening]
-  belongs_to :origin_point, class_name: 'Point'
-  belongs_to :destination_point, class_name: 'Point'
+  belongs_to :origin_address, class_name: 'Address'
+  belongs_to :destination_address, class_name: 'Address'
   belongs_to :load_step, class_name: 'RoutingStep'
   belongs_to :unload_step, class_name: 'RoutingStep'
 
-  def origin_point_name
-    origin_point.nil? ? nil : origin_point.name
+  def origin_address_name
+    origin_address.nil? ? nil : origin_address.name
   end
 
-  def destination_point_name
-    destination_point.nil? ? nil : destination_point.name
+  def destination_address_name
+    destination_address.nil? ? nil : destination_address.name
   end
 
   def load_time

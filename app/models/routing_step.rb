@@ -7,8 +7,8 @@ class RoutingStep < ActiveRecord::Base
 
   def routing_address
     if (load_orders.any?)
-      return load_orders.first.origin_point.address
+      return load_orders.first.origin_address
     end
-    unload_orders.first.destination_point.address
+    unload_orders.first.destination_address
   end
 end

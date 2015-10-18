@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    @points = Point.all.map{|p| [p.name, p.id]}
+    @points = Address.all.map{|p| [p.name, p.id]}
   end
 
   # POST /orders
@@ -71,6 +71,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:number, :delivery_date, :delivery_shift, :volume, :handling_unit_quantity, :origin_point_id, :destination_point_id, :load_step_id, :unload_step_id)
+      params.require(:order).permit(:number, :delivery_date, :delivery_shift, :volume, :handling_unit_quantity, :origin_address_id, :destination_address_id, :load_step_id, :unload_step_id)
     end
 end

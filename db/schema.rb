@@ -54,26 +54,22 @@ ActiveRecord::Schema.define(version: 20151010171758) do
     t.integer  "delivery_shift",         default: 0, null: false
     t.float    "volume"
     t.integer  "handling_unit_quantity"
-    t.integer  "origin_point_id"
-    t.integer  "destination_point_id"
+    t.string   "origin_name"
+    t.string   "origin_phone"
+    t.integer  "origin_address_id"
+    t.string   "destination_name"
+    t.string   "destination_phone"
+    t.integer  "destination_address_id"
     t.integer  "load_step_id"
     t.integer  "unload_step_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
-  add_index "orders", ["destination_point_id"], name: "index_orders_on_destination_point_id"
+  add_index "orders", ["destination_address_id"], name: "index_orders_on_destination_address_id"
   add_index "orders", ["load_step_id"], name: "index_orders_on_load_step_id"
-  add_index "orders", ["origin_point_id"], name: "index_orders_on_origin_point_id"
+  add_index "orders", ["origin_address_id"], name: "index_orders_on_origin_address_id"
   add_index "orders", ["unload_step_id"], name: "index_orders_on_unload_step_id"
-
-  create_table "points", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.integer  "address_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "routing_lists", force: :cascade do |t|
     t.date     "delivery_date"
