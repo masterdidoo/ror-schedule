@@ -18,7 +18,7 @@ class RoutingListsControllerTest < ActionController::TestCase
 
   test "should create routing_list" do
     assert_difference('RoutingList.count') do
-      post :create, routing_list: { delivery_date: '2015-10-10', delivery_shift: :evening }
+      post :create, routing_list: { delivery_date: '2015-10-11', delivery_shift: :evening }
     end
 
     assert_redirected_to routing_list_path(assigns(:routing_list))
@@ -35,7 +35,7 @@ class RoutingListsControllerTest < ActionController::TestCase
   end
 
   test "should update routing_list" do
-    patch :update, id: @routing_list, routing_list: { delivery_date: @routing_list.delivery_date, delivery_shift: @routing_list.delivery_shift, driver_id: @routing_list.driver_id, first_step_id: @routing_list.first_step_id }
+    patch :update, id: @routing_list, routing_list: { delivery_date: @routing_list.delivery_date, delivery_shift: @routing_list.delivery_shift, driver_id: @routing_list.driver_id }
     assert_redirected_to routing_list_path(assigns(:routing_list))
   end
 

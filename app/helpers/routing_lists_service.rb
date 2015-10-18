@@ -5,53 +5,92 @@ class RoutingListsService
       routing_list.errors.add(:drivers, 'No available drivers')
       return false
     end
-    routing_list.driver = drivers.first
-
-    delivery_time = routing_list.delivery_date + 1/24/60;
-    perv_step = nil;
+    driver = drivers.first
 
     orders = Order.where(
         delivery_date: routing_list.delivery_date,
         delivery_shift: RoutingList.delivery_shifts[routing_list.delivery_shift],
         load_step: nil,
         unload_step: nil
-    )
+    ).map
 
-    # points = orders.select(:origin_point_id).distinct.map { |o| o.origin_point }
-    #              .concat(orders.select(:destination_point_id).distinct.map { |o| o.destination_point })
-    #              .uniq
-    #
-    # p points
+    unless orders.any?
+      routing_list.errors.add(:routing_lists, 'No orders')
+      return false
+    end
 
-    # Order.where(
-    #     delivery_date: routing_list.delivery_date,
-    #     delivery_shift: routing_list.delivery_shift,
-    #     load_step: nil,
-    #     unload_step: nil
-    # ).each do |order|
-    #   delivery_time += 1/24/60;
-    #   step = RoutingStep.new(
-    #       # routing_list: routing_list,
-    #       delivery_time: delivery_time
-    #   )
-    #
-    #   order.load_step = step
-    #   order.unload_step = step
-    #
-    #   unless perv_step.nil?
-    #     perv_step.next_step = step
-    #     perv_step.save
-    #   end
-    #
-    #   perv_step = step
-    # end
-    #
-    # if perv_step.nil?
-    #   routing_list.errors.add(:first_step, 'No available orders')
-    #   return false
-    # end
-    # perv_step.save
+    start_address = driver.truck.start_address
+    points = []
+    orders.map { |o| o.origin_address }
+        .concat(orders.map { |o| o.destination_address })
+        .uniq
+        .each do |address|
+      point = Point.new
+      point.address = address
+      point.load_orders = orders.select { |o| o.origin_address_id == address.id }
+      point.unload_orders = orders.select { |o| o.destination_address_id == address.id }
+      point.distance = AddressesService.get_distance(start_address, address)
+      points << point
+    end
 
+    steps = []
+
+    step = RoutingStep.new
+    step.delivery_time = routing_list.delivery_date
+    step.address = driver.truck.start_address
+    step.volume = driver.truck.volume
+
+    begin
+      step = next_step(step, points)
+      steps << step unless step.nil?
+    end while !step.nil?
+
+    i = 0;
+    steps.each do |s|
+      i+=1
+      s.routing_list = routing_list
+      s.index = i
+      s.save
+    end
+
+    orders.each { |o| o.save }
+
+    routing_list.driver = driver
     routing_list.save
+  end
+
+  def self.next_step(prev_step, points)
+    start_points = points.select do |p|
+      p.load_orders.any? { |ord| ord.load_step.nil? } ||
+          p.unload_orders.any? { |ord| ord.unload_step.nil? }
+    end.map do |p|
+      p.time = AddressesService.get_delivery_time(prev_step.address, p.address)
+      p
+    end.sort { |p| p.time }
+
+    start_points.each do |point|
+      step = RoutingStep.new
+      step.address = point.address
+      step.delivery_time = prev_step.delivery_time + point.time
+      step.volume = prev_step.volume
+
+      action_exists = false
+
+      point.unload_orders.select { |ord| !ord.load_step.nil? }.each do |ord|
+        ord.unload_step = step
+        step.volume += ord.volume
+        action_exists = true
+      end
+      point.load_orders.select { |ord| ord.load_step.nil? }.each do |ord|
+        if step.volume >= ord.volume
+          ord.load_step = step
+          step.volume -= ord.volume
+          action_exists = true
+        end
+      end
+
+      return step if action_exists
+    end
+    return nil
   end
 end

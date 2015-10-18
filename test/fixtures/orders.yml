@@ -79,5 +79,28 @@ ord6:
   origin_phone: '442-0022225'
   origin_address: a2
   destination_name: 'LTD Name'
-  destination_phone: '443-2233213'
   destination_address: a1
+
+ord7:
+  number: 230204
+  delivery_date: 2015-10-11
+  delivery_shift: 2
+  volume: 50
+  handling_unit_quantity: 2
+  origin_name: 'LTD Name'
+  origin_address: a1
+  destination_name: 'Client Name 1'
+  destination_phone: '442-0022225'
+  destination_address: a2
+
+ord8:
+  number: 230204
+  delivery_date: 2015-10-11
+  delivery_shift: 2
+  volume: 76
+  handling_unit_quantity: 4
+  origin_name: 'LTD Name'
+  origin_address: a1
+  destination_name: 'Client Name 2'
+  destination_phone: '442-0022227'
+  destination_address: a3

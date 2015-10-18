@@ -4,7 +4,6 @@ class CreateRoutingLists < ActiveRecord::Migration
       t.date :delivery_date
       t.integer :delivery_shift, default: 0, null: false
       t.belongs_to :driver, index: true, foreign_key: true
-      t.belongs_to :first_step, class_name: 'RoutingStep', index: true, foreign_key: true
 
       t.timestamps null: false
     end

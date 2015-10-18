@@ -45,7 +45,7 @@ City.create([
 address = Address.create({city: raleigh, zip: '27603', raw_line: '1505 S BLOUNT ST'})
 
 City.all.each do |city|
-  Address.create({city: city, zip: '27603', raw_line: '1505 S BLOUNT ST'})
+  Address.create({city: city, zip: '34523', raw_line: '32 Test addr'})
 end
 
 Driver.create([

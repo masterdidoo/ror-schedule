@@ -75,22 +75,21 @@ ActiveRecord::Schema.define(version: 20151010171758) do
     t.date     "delivery_date"
     t.integer  "delivery_shift", default: 0, null: false
     t.integer  "driver_id"
-    t.integer  "first_step_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   add_index "routing_lists", ["driver_id"], name: "index_routing_lists_on_driver_id"
-  add_index "routing_lists", ["first_step_id"], name: "index_routing_lists_on_first_step_id"
 
   create_table "routing_steps", force: :cascade do |t|
+    t.integer  "index"
     t.datetime "delivery_time"
-    t.integer  "next_step_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "routing_list_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "routing_steps", ["next_step_id"], name: "index_routing_steps_on_next_step_id"
+  add_index "routing_steps", ["routing_list_id"], name: "index_routing_steps_on_routing_list_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

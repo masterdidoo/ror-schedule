@@ -33,7 +33,6 @@ class OrderTest < ActiveSupport::TestCase
 
     assert_equal 'LTD Name', order.destination_name
     assert_equal 'MyString 1', order.destination_address.raw_line
-    assert_equal '443-2233213', order.destination_phone
 
     assert_nil order.load_time
     assert_nil order.unload_time

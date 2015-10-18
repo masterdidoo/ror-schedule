@@ -3,10 +3,6 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_routing_list_path(@routing_list), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
   <h1>Show routing_list</h1>
 </div>
 
@@ -27,13 +23,14 @@
     <thead>
     <tr>
       <th>Delivery time</th>
+      <th>Delivery address</th>
     </tr>
     </thead>
 
     <tbody>
-    <%= content_tag_for(:tr, @routing_list.routing_steps) do |routing_list| %>
-        <td><%= routing_list.delivery_time %></td>
-        <td><%= routing_list.routing_address %></td>
+    <%= content_tag_for(:tr, @routing_list.routing_steps) do |routing_step| %>
+        <td><%= routing_step.delivery_time %></td>
+        <td><%= routing_step.routing_address %></td>
     <% end %>
     </tbody>
   </table>

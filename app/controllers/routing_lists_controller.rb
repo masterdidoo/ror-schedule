@@ -71,6 +71,6 @@ class RoutingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def routing_list_params
-      params.require(:routing_list).permit(:delivery_date, :delivery_shift, :driver_id, :first_step_id)
+      params.require(:routing_list).permit(:delivery_date, :delivery_shift, :driver_id)
     end
 end
