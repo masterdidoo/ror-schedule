@@ -20,4 +20,8 @@ class Order < ActiveRecord::Base
   def unload_time
     unload_step.nil? ? nil : unload_step.delivery_time
   end
+
+  def not_in_list?
+    load_step.nil? || unload_step.nil?
+  end
 end

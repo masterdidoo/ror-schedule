@@ -61,8 +61,8 @@ class RoutingListsService
 
   def self.next_step(prev_step, points)
     start_points = points.select do |p|
-      p.load_orders.any? { |ord| ord.load_step.nil? } ||
-          p.unload_orders.any? { |ord| ord.unload_step.nil? }
+      p.load_orders.any? { |ord| ord.not_in_list? } ||
+          p.unload_orders.any? { |ord| ord.not_in_list? }
     end.map do |p|
       p.time = AddressesService.get_delivery_time(prev_step.address, p.address)
       p
@@ -76,7 +76,7 @@ class RoutingListsService
 
       action_exists = false
 
-      point.unload_orders.select { |ord| !ord.load_step.nil? }.each do |ord|
+      point.unload_orders.select { |ord| ord.unload_step.nil? && !ord.load_step.nil? }.each do |ord|
         ord.unload_step = step
         step.volume += ord.volume
         action_exists = true
