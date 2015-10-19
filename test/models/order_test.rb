@@ -8,6 +8,10 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 'afternoon', order.delivery_shift
     assert_equal 5.5, order.volume
     assert_equal 1, order.handling_unit_quantity
+    assert_equal '442-0022225', order.destination_phone
+    assert_equal 'Client Name 1', order.destination_name
+    assert_equal '443-2233213', order.origin_phone
+    assert_equal 'LTD Name', order.origin_name
 
     assert_equal 'LTD Name', order.origin_name
     assert_equal 'MyString 1', order.origin_address.raw_line
