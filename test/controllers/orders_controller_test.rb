@@ -10,7 +10,7 @@ class OrdersControllerTest < ActionController::TestCase
     assert_response :success
     orders = assigns(:orders)
     assert_not_nil orders
-    assert_equal 3, orders.count
+    assert_equal 8, orders.count
   end
 
   test "should get new" do
