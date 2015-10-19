@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where('load_step_id is null or unload_step_id is null')
+    @orders = Order.all
+    # @orders = Order.where('load_step_id is null or unload_step_id is null')
   end
 
   # GET /orders/1

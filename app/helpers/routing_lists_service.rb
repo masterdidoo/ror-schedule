@@ -36,7 +36,7 @@ class RoutingListsService
     steps = []
 
     step = RoutingStep.new
-    step.delivery_time = routing_list.delivery_date
+    step.delivery_time = routing_list.delivery_date + SHIFTS[routing_list.delivery_shift]
     step.address = driver.truck.start_address
     step.volume = driver.truck.volume
 
@@ -93,4 +93,10 @@ class RoutingListsService
     end
     return nil
   end
+
+  SHIFTS = {
+      'morning' => 8.hours,
+      'afternoon' => 12.hours,
+      'evening' => 18.hours
+  }
 end
